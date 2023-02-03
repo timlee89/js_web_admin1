@@ -8,5 +8,14 @@ class FirebaseServices {
       firebase_storage.FirebaseStorage.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   CollectionReference users = FirebaseFirestore.instance.collection('users');
-}
+  CollectionReference meditations =
+      FirebaseFirestore.instance.collection('meditations');
 
+  //Save meditation data in firestore
+  // Future<void> SaveMeditation(
+  //     {CollectionReference reference,
+  //     Map<String, dynamic> data,
+  //     String docName}) async {
+  //   return reference.doc(docName).set(data);
+  // }
+}

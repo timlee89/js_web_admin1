@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:js_web_admin1/screens/dashboard_screen.dart';
 import 'package:js_web_admin1/screens/login_screen.dart';
-import 'package:js_web_admin1/screens/manage_categories.dart';
+import 'package:js_web_admin1/screens/new_meditation.dart';
 import 'package:js_web_admin1/screens/manage_items.dart';
-
+import 'package:js_web_admin1/screens/test_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String id= "home_screen";
+  static const String id = "home_screen";
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -16,23 +16,27 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  Widget _selectedScreen =  DashboardScreen();
-  currentScreen(item){
-    switch(item.route){
+  Widget _selectedScreen = DashboardScreen();
+  currentScreen(item) {
+    switch (item.route) {
       case DashboardScreen.id:
         setState(() {
-          _selectedScreen =  DashboardScreen();
+          _selectedScreen = DashboardScreen();
         });
         break;
-      case ManageCategory.id:
+      case NewMeditation.id:
         setState(() {
-          _selectedScreen =  ManageCategory();
+          _selectedScreen = NewMeditation();
         });
         break;
       case ManageItem.id:
         setState(() {
-          _selectedScreen =  ManageItem();
+          _selectedScreen = ManageItem();
+        });
+        break;
+      case TestScreen.id:
+        setState(() {
+          _selectedScreen = TestScreen();
         });
         break;
     }
@@ -45,8 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
       icon: Icons.dashboard,
     ),
     AdminMenuItem(
-      title: 'Manage Category',
-      route: ManageCategory.id,
+      title: '명상 컨텐츠 업데이트',
+      route: NewMeditation.id,
       icon: Icons.category_rounded,
     ),
     AdminMenuItem(
@@ -55,8 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
       icon: Icons.pages,
     ),
     AdminMenuItem(
-      title: 'Others',
-      route: ManageCategory.id,
+      title: 'Test Page',
+      route: TestScreen.id,
+      icon: Icons.padding_rounded,
+    ),
+    AdminMenuItem(
+      title: 'Test 2',
+      route: TestScreen.id,
       icon: Icons.padding_rounded,
     ),
   ];
@@ -102,7 +111,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text("Logout"),
                 onPressed: () async {
                   await FirebaseAuth.instance.signOut();
-                  Navigator.of(context).pushNamedAndRemoveUntil(LoginScreen.id, (route) => false);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      LoginScreen.id, (route) => false);
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.purple,
@@ -114,9 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-
       ),
-
       body: SingleChildScrollView(
         child: _selectedScreen,
       ),

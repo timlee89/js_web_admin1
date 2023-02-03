@@ -4,9 +4,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:js_web_admin1/screens/home_screen.dart';
 import 'package:js_web_admin1/screens/login_screen.dart';
-import 'package:js_web_admin1/screens/manage_categories.dart';
+import 'package:js_web_admin1/screens/new_meditation.dart';
 import 'package:js_web_admin1/screens/manage_items.dart';
 import 'package:js_web_admin1/screens/splash_screen.dart';
+import 'package:js_web_admin1/screens/test_screen.dart';
 
 import 'firebase_options.dart';
 
@@ -29,20 +30,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: LoginScreen.id,
+      // initialRoute: LoginScreen.id,
+      initialRoute: HomeScreen.id,
       routes: {
         SplashScreen.id: (context) => const SplashScreen(),
-        LoginScreen.id: (context) =>  LoginScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
         HomeScreen.id: (context) => const HomeScreen(),
-        ManageCategory.id: (context) => ManageCategory(),
+        NewMeditation.id: (context) => NewMeditation(),
         ManageItem.id: (context) => ManageItem(),
+        TestScreen.id: (context) => TestScreen(),
       },
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
         body: Center(
-          child: Text("HomeScreen", style: TextStyle(fontSize: 30, color: Colors.blue),),
+          child: Text(
+            "HomeScreen",
+            style: TextStyle(fontSize: 30, color: Colors.blue),
+          ),
         ),
       ),
     );
   }
-}  
+}

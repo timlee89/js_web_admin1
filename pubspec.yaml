@@ -41,6 +41,9 @@ dependencies:
   firebase_storage: ^11.0.10
   cloud_firestore: ^4.3.1
   flutter_admin_scaffold: ^1.1.2
+  file_picker: ^5.2.5
+  flutter_form_builder: ^7.7.0
+  form_builder_validators: ^8.4.0
 
 dev_dependencies:
   flutter_test:
