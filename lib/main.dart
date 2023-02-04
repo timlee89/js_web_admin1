@@ -3,11 +3,13 @@ import 'dart:convert';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:js_web_admin1/screens/home_screen.dart';
+import 'package:js_web_admin1/screens/list_meditation.dart';
 import 'package:js_web_admin1/screens/login_screen.dart';
-import 'package:js_web_admin1/screens/new_meditation.dart';
-import 'package:js_web_admin1/screens/manage_items.dart';
+import 'package:js_web_admin1/screens/register_meditation.dart';
+import 'package:js_web_admin1/screens/test3.dart';
 import 'package:js_web_admin1/screens/splash_screen.dart';
-import 'package:js_web_admin1/screens/test_screen.dart';
+import 'package:js_web_admin1/screens/test_formBuilder.dart';
+import 'package:js_web_admin1/screens/update_meditation.dart';
 
 import 'firebase_options.dart';
 
@@ -34,11 +36,13 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.id,
       routes: {
         SplashScreen.id: (context) => const SplashScreen(),
-        LoginScreen.id: (context) => LoginScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
         HomeScreen.id: (context) => const HomeScreen(),
-        NewMeditation.id: (context) => NewMeditation(),
-        ManageItem.id: (context) => ManageItem(),
-        TestScreen.id: (context) => TestScreen(),
+        RegisterMeditation.id: (context) => RegisterMeditation(),
+        ListMeditation.id: (context) => const ListMeditation(),
+        UpdateMeditation.id: (context) => const UpdateMeditation(),
+        ManageItem.id: (context) => const ManageItem(),
+        TestScreen.id: (context) => const TestScreen(),
       },
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
